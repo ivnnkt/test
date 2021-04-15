@@ -9,6 +9,13 @@ WALLET
 <h1>WALLET</h1>
 <p>На этой странице вы можете создать шаблон письма и отправить его по списку рассылки.</p>
 <hr>
+    <ul>
+      {% for trans in prod %}
+      <li>
+        <p>Кошелёк:{{ trans.wallet }}, сумма:{{ trans.amount }} руб., вид операции:{{ trans.transaction_type }}, дата:{{ trans.date }}, комментарий:{{ trans.description }}.</p>
+      </li>
+      {% endfor %}
+    </ul>
 {% endblock %}
 
 {% block content %}

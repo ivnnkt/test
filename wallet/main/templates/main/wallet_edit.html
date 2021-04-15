@@ -1,0 +1,10 @@
+{% extends 'main/base.html' %}
+
+{% block content %}
+    <h1>Редактировать кошелёк</h1>
+    <form method="post">{% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Изменить">
+    </form>
+    <a href="{% url 'wallet_del' pk=wallet.id %}">Удалить кошелёк</a>
+{% endblock content %}
