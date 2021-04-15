@@ -129,8 +129,8 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # перенаправление после :
 # авторизации
-LOGIN_REDIRECT_URL = '/'
+LOGIN_REDIRECT_URL = '/wallets/'
 # выхода
-LOGOUT_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = 'login'
 
 SITE_ID = 1

@@ -1,0 +1,19 @@
+{% extends 'main/base.html' %}
+
+{% block title %}
+WALLET {{ wallet.name }}
+{% endblock %}
+
+{% block content %}
+    <h1>{{ wallet.name }}</h1>
+    <h3>{{ wallet.balance }} рублей</h3>
+<!--    <ul>-->
+<!--      {% for wallet in wallet_list %}-->
+<!--      <li>-->
+<!--        <a href="{{ wallet.pk }}">{{ wallet.name }}</a>-->
+<!--          <h3>{{ wallet.balance }} рублей</h3>-->
+<!--      </li>-->
+<!--      {% endfor %}-->
+<!--    </ul>-->
+    <a href="{% url 'wallet_edit' pk=wallet.id%}">Редактировать/удалить кошелёк</a>
+{% endblock %}

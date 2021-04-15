@@ -1,0 +1,17 @@
+{% extends 'main/base.html' %}
+
+{% block title %}
+Transactions
+{% endblock %}
+
+{% block content %}
+    <h1>История операций</h1>
+    <ul>
+      {% for trans in transactions_list %}
+      <li>
+        <p>Кошелёк:{{ trans.wallet }}, сумма:{{ trans.amount }} руб., вид операции:{{ trans.transaction_type }}, дата:{{ trans.date }}, комментарий:{{ trans.description }}.</p>
+      </li>
+      {% endfor %}
+    </ul>
+
+{% endblock %}
