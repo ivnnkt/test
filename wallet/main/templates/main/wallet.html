@@ -6,14 +6,15 @@ WALLET {{ wallet.name }}
 
 {% block content %}
     <h1>{{ wallet.name }}</h1>
-    <h3>{{ wallet.balance }} рублей</h3>
-<!--    <ul>-->
-<!--      {% for wallet in wallet_list %}-->
-<!--      <li>-->
-<!--        <a href="{{ wallet.pk }}">{{ wallet.name }}</a>-->
-<!--          <h3>{{ wallet.balance }} рублей</h3>-->
-<!--      </li>-->
-<!--      {% endfor %}-->
-<!--    </ul>-->
+    <h3>{{ wallet.balance }} руб.</h3>
+    <hr>
+    <h4>История операций по кошельку:</h4>
+    <ul>
+      {% for trans in transactions %}
+      <li>
+          <p>Кошелёк:{{ trans.wallet }}, сумма:{{ trans.amount }} руб., вид операции:{{ trans.transaction_type }}, дата:{{ trans.date }}, комментарий:{{ trans.description }}.<a href="{% url 'transaction_del' pk=trans.id %}">Удалить транзакцию из истории</a></p>
+      </li>
+      {% endfor %}
+    </ul>
     <a href="{% url 'wallet_edit' pk=wallet.id%}">Редактировать/удалить кошелёк</a>
 {% endblock %}
