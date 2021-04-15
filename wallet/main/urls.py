@@ -10,4 +10,5 @@ urlpatterns = [
     path('wallets/add', views.WalletCreateView.as_view(), name='wallet_add'),
     path('transactions/', views.TransactionListView.as_view(), name='transactions'),
     path('transactions/add', views.TransactionCreateView.as_view(), name='transaction_add'),
+    path('transactions/<int:pk>/delete', views.TransactionDeleteView.as_view(), name='transaction_del'),
 ]
