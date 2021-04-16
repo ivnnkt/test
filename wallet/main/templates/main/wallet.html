@@ -12,9 +12,10 @@ WALLET {{ wallet.name }}
     <ul>
       {% for trans in transactions %}
       <li>
-          <p>Кошелёк:{{ trans.wallet }}, сумма:{{ trans.amount }} руб., вид операции:{{ trans.transaction_type }}, дата:{{ trans.date }}, комментарий:{{ trans.description }}.<a href="{% url 'transaction_del' pk=trans.id %}">Удалить транзакцию из истории</a></p>
+          <p>Вид операции:{% if trans.transaction_type == 'plus' %}Пополнение{% else %}Списание{% endif %}, сумма: {{ trans.amount }} руб., дата: {{ trans.date }}, комментарий: {{ trans.description }}.  <a href="{% url 'transaction_del' pk=trans.id %}">Удалить транзакцию из истории</a></p>
       </li>
       {% endfor %}
     </ul>
     <a href="{% url 'wallet_edit' pk=wallet.id%}">Редактировать/удалить кошелёк</a>
 {% endblock %}
+

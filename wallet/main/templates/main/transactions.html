@@ -9,7 +9,7 @@ Transactions
     <ul>
       {% for trans in transactions_list %}
       <li>
-        <p>Кошелёк:{{ trans.wallet }}, сумма:{{ trans.amount }} руб., вид операции:{{ trans.transaction_type }}, дата:{{ trans.date }}, комментарий:{{ trans.description }}.</p>
+        <p>Кошелёк:{{ trans.wallet }}, сумма:{{ trans.amount }} руб., вид операции: {% if trans.transaction_type == 'plus' %}Пополнение{% else %}Списание{% endif %}, дата:{{ trans.date }}, комментарий:{{ trans.description }}.</p>
       </li>
       {% endfor %}
     </ul>
